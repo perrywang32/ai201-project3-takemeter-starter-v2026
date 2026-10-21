@@ -39,145 +39,98 @@
 
 ## What This Does
 
-<!-- Your community, and what your classifier sorts posts into. Three or four
-     sentences. -->
-
-
+This is a **practice run** using the course-provided posts from a fictional running forum. The classifier is set up to sort posts into `analysis`, `hot_take`, and `reaction`. This 60-post practice set is useful for checking the notebook, but it is not my own 200-post community dataset.
 
 ---
 
 ## Label Taxonomy
 
-<!-- Each label: a one-sentence definition and two real examples from your
-     reading. Then your decision rule for the hardest boundary.
+### `analysis`
 
-     The decision rule is worth a point on its own and it's the thing most
-     people leave out. Every taxonomy has a hardest boundary. Name yours. -->
-
-### `label_one`
-
-**Definition:**
+**Definition:** Makes an argument supported by a specific, checkable fact that does real work in the argument.
 
 **Example 1:**
->
+> “Median finish was 3:58 last year”
 
 **Example 2:**
->
+> “capped long runs at 2 hours”
 
-### `label_two`
+### `hot_take`
 
-**Definition:**
+**Definition:** Makes a confident claim without offering support for it.
 
 **Example 1:**
->
+> “Super shoes have ruined amateur racing”
 
 **Example 2:**
->
+> “Anyone running more than 60 miles”
+
+### `reaction`
+
+**Definition:** Gives an immediate personal response to something that just happened.
+
+**Example 1:**
+> “I cannot feel my hands”
+
+**Example 2:**
+> “I'm genuinely shaking”
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `analysis` and `hot_take`
 
-**The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
-
-
+**The decision rule I used every time:** A checkable fact only makes a post `analysis` when it supports the argument. If the fact is just decoration for an unsupported conclusion, the post is `hot_take`.
 
 ---
 
 ## The Dataset
 
-<!-- Where you collected from, how you labelled, your counts, and three hard
-     cases. -->
+**Where the posts came from:** The course-provided `practice_labels.csv`, a fictional running-forum dataset.
 
-**Where the posts came from:**
-
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
+**How I labelled them:** I did not collect or label these posts myself; the course supplied them with labels already assigned. This was a practice run, not my project dataset.
 
 **Counts per label:**
 
 | Label | Count | Share |
-|---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+|---|---:|---:|
+| analysis | 20 | 33.3% |
+| hot_take | 20 | 33.3% |
+| reaction | 20 | 33.3% |
+| **Total** | **60** | **100%** |
 
 **Three hard cases**
 
-<!-- Any post that made you pause: what it was, which two labels it could have
-     been, and what you chose. These are worth more than the easy 190. -->
-
-**1.**
-> *The post:*
->
-> *Could have been:*
->
-> *I chose, because:*
-
-**2.**
-> *The post:*
->
-> *Could have been:*
->
-> *I chose, because:*
-
-**3.**
-> *The post:*
->
-> *Could have been:*
->
-> *I chose, because:*
+I did not independently label this practice set, so I have not identified three cases from my own labeling. I still need to do this for my project dataset.
 
 ---
 
 ## The Training Run
 
-<!-- Your starting model, your settings, and anything you changed and why. -->
+**Base model:** `distilbert-base-uncased` (configured in the notebook; training did not complete in the uploaded run).
 
-**Base model:**
+**Settings:** 3 epochs, learning rate `2e-5`, batch size 16, seed 42. The notebook detected CPU (`torch 2.14.1+cpu`).
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Anything I changed from the defaults, and why:** No training settings were changed.
 
-**Anything I changed from the defaults, and why:**
-
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
-
-
+**Split sizes:** Not generated. The uploaded notebook stopped when it tried to read `labels.csv`, which was not present. No training metrics are available yet.
 
 ---
 
 ## How I Used AI
 
-<!-- Two specific moments — what you asked, what came back, what you changed.
-
-     ⚠️ Plus disclosure of any pre-labelling. If you had a model pre-label a
-     batch and then read and corrected every one, say that. It's an allowed
-     workflow and disclosing it costs you nothing. Not disclosing it is the
-     problem. -->
-
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Help identifying what to fill in the notebook.
+- *What came back:* A recommendation to use the course practice CSV path when my own `labels.csv` was not available.
+- *What I changed:* The uploaded notebook still points to `labels.csv`; I need to change it to `data/practice_labels.csv` to run the practice set.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Help filling in the README from my notebook.
+- *What came back:* The review found the saved notebook had not progressed past the missing-file error and identified the practice-set label counts.
+- *What I changed:* I recorded the practice data and setup facts, and left training results blank because the model did not train.
 
-**Pre-labelling disclosure:**
-
-<!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
-
-     Don't fill these in during unit 5.
-     ═══════════════════════════════════════════════════════════════════ -->
+**Pre-labelling disclosure:** The practice CSV was already labeled by the course. I did not use AI to pre-label it.
 
 ---
 
@@ -190,8 +143,9 @@ of next unit's variance. -->
 |---|---|---|---|
 | Overall accuracy |  |  |  |
 | Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| F1 — `analysis` |  |  |  |
+| F1 — `hot_take` |  |  |  |
+| F1 — `reaction` |  |  |  |
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
@@ -223,11 +177,11 @@ of next unit's variance. -->
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
-|---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| true \ predicted | analysis | hot_take | reaction |
+|---|---:|---:|---:|
+| **analysis** |  |  |  |
+| **hot_take** |  |  |  |
+| **reaction** |  |  |  |
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
