@@ -138,20 +138,19 @@ The dataset check found 183 rows, 17 below the 200-post target in the brief. Res
 
 ## Baseline vs. Trained
 
-The zero-shot baseline has **not been run yet**. The trained results below use the seed-42 held-out test split.
+Both models were evaluated on the same 28 held-out posts from `test_split.csv`. The zero-shot baseline used the label definitions in `label_definitions.txt`.
 
-| Measure | Baseline | Trained |
-|---|---:|---:|
-| Overall accuracy | pending | 0.607 |
-| Macro F1 | pending | 0.535 |
-| F1 — `analysis` | pending | 0.737 |
-| F1 — `hot_take` | pending | 0.667 |
-| F1 — `reaction` | pending | 0.200 |
+| Measure | Baseline | Trained | Difference |
+|---|---:|---:|---:|
+| Overall accuracy | 0.500 | 0.607 | +0.107 |
+| Macro F1 | 0.399 | 0.535 | +0.135 |
+| F1 — `analysis` | 0.643 | 0.737 | +0.094 |
+| F1 — `hot_take` | 0.000 | 0.667 | +0.667 |
+| F1 — `reaction` | 0.556 | 0.200 | -0.356 |
 
-**Prediction before seeing the comparison:** I expect the trained model to outperform the zero-shot baseline overall, especially on the analysis and hot_take labels, because it was fine-tuned on these posts. I expect the baseline may do similarly or better on reaction, since that label is less clearly separated in my training data.
+**Prediction made before running the baseline:** I expected the trained model to do better overall, especially on `analysis` and `hot_take`, while the baseline might do as well or better on `reaction`. I had already seen the trained model's results, so this was a prediction about the comparison, not a blind prediction of the trained scores.
 
-**What the gap actually means:** Pending the baseline run.
-
+**What the gap means:** The prediction was borne out on overall accuracy and macro F1: fine-tuning improved them by 0.107 and 0.135. It also improved `analysis` and especially `hot_take`, but the baseline did much better on `reaction`. This suggests the fine-tuned model's main weakness is recognizing `reaction`; it does not show that fine-tuning helped every label.
 ---
 
 ## Run Log — Before

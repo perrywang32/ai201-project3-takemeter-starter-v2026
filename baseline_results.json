@@ -6,13 +6,13 @@
   "used_definitions": true,
   "scores": {
     "n": 28,
-    "accuracy": 0.5,
-    "f1_macro": 0.39947089947089953,
+    "accuracy": 0.4642857142857143,
+    "f1_macro": 0.36375929682217717,
     "per_label": {
       "analysis": {
-        "precision": 0.47368421052631576,
+        "precision": 0.45,
         "recall": 1.0,
-        "f1": 0.6428571428571429,
+        "f1": 0.6206896551724138,
         "support": 9
       },
       "hot_take": {
@@ -22,9 +22,9 @@
         "support": 10
       },
       "reaction": {
-        "precision": 0.5555555555555556,
-        "recall": 0.5555555555555556,
-        "f1": 0.5555555555555556,
+        "precision": 0.5,
+        "recall": 0.4444444444444444,
+        "f1": 0.47058823529411764,
         "support": 9
       }
     }
@@ -161,9 +161,9 @@
       "predicted": "analysis"
     },
     {
-      "text": "Definitely going to be a fun, surprisingly good-vibes team with no expectations, but it hurts because it\u2019s not even like we\u2019re a cursed team when it comes to drafting and development. We get every pick taken right when the lottery odds change, and play-in-tier teams can be rewarded at much higher rates. I will always be a fan, but this is pretty much as close to a franchise killer as it gets. It felt like it was all lining up for a truly refreshing era too.",
+      "text": "Wagler\u2019s TS% being that high and not even shooting the ball that well I\u2019m shaking we averaging 65%+ once we get comfortable",
       "gold": "reaction",
-      "predicted": "reaction"
+      "predicted": "analysis"
     },
     {
       "text": "That was a reckless close-out in a four-point game. Go rate bait somewhere else, idiot.",
