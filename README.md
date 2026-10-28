@@ -201,35 +201,53 @@ Using the targets in `criteria.md`:
 
 ## The Improvement
 
-**What I changed:** Pending the baseline and staff agreement diagnosis.
+**What I changed:** Added eight reaction-labeled posts to the dataset to increase examples for the weakest class. This changed the dataset from 183 to 191 posts; it remains below the 200-post target.
 
-**Which diagnosis pointed at it:** Pending.
+**Which diagnosis pointed at it:** The earlier run showed very low `reaction` F1 and frequent confusion with `hot_take`; increasing reaction examples was the chosen data change.
 
 ### Run Log — After
 
-Not run yet. After choosing one evidence-based improvement, set `RUN_LABEL = "after"` in notebook Section 6 and rerun the three seeds.
+The latest three-seed run used the 191-post dataset. The intervention was adding eight reaction examples; the initial and latest runs used different dataset sizes and test splits, so the change cannot be isolated as the sole cause of score differences.
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---:|---:|---:|---:|
+| Overall accuracy | 0.655 | 0.517 | 0.552 | 0.138 |
+| Macro F1 | 0.649 | 0.463 | 0.551 | 0.186 |
+| F1 — `analysis` | 0.737 | 0.727 | 0.842 | 0.115 |
+| F1 — `hot_take` | 0.640 | 0.480 | 0.476 | 0.164 |
+| F1 — `reaction` | 0.571 | 0.182 | 0.333 | 0.390 |
+
+### Confusion matrix — latest run, seed 42
+
+| true \ predicted | analysis | hot_take | reaction |
+|---|---:|---:|---:|
+| **analysis** | 7 | 2 | 0 |
+| **hot_take** | 2 | 8 | 0 |
+| **reaction** | 1 | 5 | 4 |
+
+**Biggest off-diagonal number:** Five true `reaction` posts were predicted as `hot_take`; there were no `hot_take` posts predicted as `reaction`. The confusion remains directional, though the latest seed-42 run correctly identified 4 of 10 reactions.
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---:|---:|---:|---|
-| 1. Overall accuracy | ≥ 0.60 each seed | pending | pending | pending | pending |
-| 2. Macro F1 | ≥ 0.60 each seed | pending | pending | pending | pending |
-| 3. Every label F1 | ≥ 0.50 each seed | pending | pending | pending | pending |
-| 4. Accuracy stability | spread ≤ 0.10 | pending | pending | pending | pending |
-| 5. Confidence usefulness | most-sure third ≥ least-sure third + 0.10 | pending | pending | pending | pending |
+| 1. Overall accuracy | ≥ 0.60 each seed | 0.655 | 0.517 | 0.552 | MISSED |
+| 2. Macro F1 | ≥ 0.60 each seed | 0.649 | 0.463 | 0.551 | MISSED |
+| 3. Every label F1 | ≥ 0.50 each seed | `reaction`: 0.571, 0.182, 0.333 | — | — | MISSED |
+| 4. Accuracy stability | spread ≤ 0.10 | spread 0.138 | — | — | MISSED |
+| 5. Confidence usefulness | most-sure third ≥ least-sure third + 0.10 | 0.889 vs 0.556 on seed 42; other seeds not reported | — | — | PENDING |
 
-**Did it help, and how do I know:** Pending the after run.
+**Did it help, and how do I know:** Seed-42 `reaction` F1 rose from 0.200 in the initial run to 0.571 in the latest run, and the latest confusion matrix correctly identifies 4 of 10 reactions. The dataset and test split changed, so this is encouraging but does not isolate the added examples as the cause.
 
 ---
 
 ## What's Still Broken
 
-- The dataset has 183 posts, 17 below the 200-post target; labels are a mix of Reddit and X/Twitter comments.
+- The dataset has 191 posts, 9 below the 200-post target; labels are a mix of Reddit and X/Twitter comments.
 - AI-assisted draft labels still need a full manual audit against the label definitions.
-- The baseline comparison and staff agreement check are still pending.
-- Accuracy spread across the three seeds is 0.107, above the 0.10 stability target.
+- The baseline comparison is complete; the staff agreement check is still pending.
+- In the latest 191-post run, accuracy spread across the three seeds is 0.138, above the 0.10 stability target.
 - The confidence usefulness verdict still needs to be checked against each seed's detailed output.
 
-**The gap between the label definitions and what the model learned:** On seed 42, 6 actual `reaction` posts were classified as `hot_take`, while only 1 of 10 actual `hot_take` posts was classified as `reaction`. The model appears to rely on language shared by emphatic reactions and opinionated takes; a manual label audit and staff agreement results are needed before deciding whether this is mostly a model or labeling issue.
+**The gap between the label definitions and what the model learned:** On the latest seed-42 run, 5 actual `reaction` posts were classified as `hot_take`, while none of the 10 actual `hot_take` posts was classified as `reaction`. The model appears to rely on language shared by emphatic reactions and opinionated takes; a manual label audit and staff agreement results are needed before deciding whether this is mostly a model or labeling issue.
 
 ---
 

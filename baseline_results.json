@@ -1,18 +1,18 @@
 {
   "model": "facebook/bart-large-mnli",
-  "n": 28,
+  "n": 29,
   "seed": 42,
   "held_out": true,
   "used_definitions": true,
   "scores": {
-    "n": 28,
-    "accuracy": 0.4642857142857143,
-    "f1_macro": 0.36375929682217717,
+    "n": 29,
+    "accuracy": 0.4482758620689655,
+    "f1_macro": 0.34814814814814815,
     "per_label": {
       "analysis": {
-        "precision": 0.45,
+        "precision": 0.42857142857142855,
         "recall": 1.0,
-        "f1": 0.6206896551724138,
+        "f1": 0.6,
         "support": 9
       },
       "hot_take": {
@@ -23,16 +23,26 @@
       },
       "reaction": {
         "precision": 0.5,
-        "recall": 0.4444444444444444,
-        "f1": 0.47058823529411764,
-        "support": 9
+        "recall": 0.4,
+        "f1": 0.4444444444444445,
+        "support": 10
       }
     }
   },
   "predictions": [
     {
-      "text": "Funny thing is, now they will have to play him sometimes.",
+      "text": "He looks so confident and relaxed with the ball. Genuinely put him in the Shai mid-range camp and this kid is next up",
       "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "ROY.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Yep. Never like to see shit like that. I didn't even notice it when it happened; it took until the replay to realize something went wrong.",
+      "gold": "reaction",
       "predicted": "reaction"
     },
     {
@@ -46,62 +56,7 @@
       "predicted": "analysis"
     },
     {
-      "text": "Ftr, feel and hawt how is this not going to be a superstar",
-      "gold": "hot_take",
-      "predicted": "reaction"
-    },
-    {
-      "text": "He\u2019s impressed me. But I\u2019d have him off the bench with Lopez. He could be killer in that role and start next year.",
-      "gold": "analysis",
-      "predicted": "analysis"
-    },
-    {
-      "text": "Be honest bro, did we get one?",
-      "gold": "reaction",
-      "predicted": "reaction"
-    },
-    {
-      "text": "Clippers are literally the most disgraceful franchise in all of pro sports.",
-      "gold": "hot_take",
-      "predicted": "analysis"
-    },
-    {
-      "text": "He is very smooth and smart.",
-      "gold": "hot_take",
-      "predicted": "analysis"
-    },
-    {
-      "text": "Clippers have picks in 2027, 2029, 2031, 2033, 2034, 2035, and so on. They\u2019ll probably eat 2028, and by then they\u2019ll have moved assets to acquire picks in 2030/32, meaning the only year the Clippers don\u2019t have a pick is 2028. I think having other teams\u2019 picks could be more valuable. Wagler has a very high ceiling. Very high. The kid is smooth. Just wait until Yanic comes back.",
-      "gold": "analysis",
-      "predicted": "analysis"
-    },
-    {
-      "text": "I saw Williams\u2019 head hit the floor and figured they were checking for concussion signs.",
-      "gold": "reaction",
-      "predicted": "analysis"
-    },
-    {
-      "text": "He looks so confident and relaxed with the ball. Genuinely put him in the Shai mid-range camp and this kid is next up",
-      "gold": "hot_take",
-      "predicted": "analysis"
-    },
-    {
-      "text": "How bro underlining his tweets",
-      "gold": "reaction",
-      "predicted": "reaction"
-    },
-    {
-      "text": "They\u2019re the last team to talk about anything like this.",
-      "gold": "hot_take",
-      "predicted": "analysis"
-    },
-    {
-      "text": "ROY.",
-      "gold": "reaction",
-      "predicted": "analysis"
-    },
-    {
-      "text": "Best-case scenario is our young players live up to the hype and we have Yanic, Wagler, and Baba on rookie-scale contracts almost all the way up until the picks get forfeited in 2030. If we use cap space on a star free agent in 2029, those first-round picks would be in the high 20s and not consequential at all. We still have a path to contention by then; it\u2019s just a little harder than before.",
+      "text": "With what assets are they going to use to acquire those picks? If that\u2019s the plan, it probably means taking on some terrible contracts.",
       "gold": "analysis",
       "predicted": "analysis"
     },
@@ -111,13 +66,43 @@
       "predicted": "reaction"
     },
     {
+      "text": "About what? He\u2019s on the worst team in the league",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Be honest bro, did we get one?",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "He is very smooth and smart.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
       "text": "DJJ for Clippers first-round pick \ud83d\udc40",
       "gold": "reaction",
       "predicted": "analysis"
     },
     {
-      "text": "About what? He\u2019s on the worst team in the league",
+      "text": "He\u2019s impressed me. But I\u2019d have him off the bench with Lopez. He could be killer in that role and start next year.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I saw someone from the baseline run over and throw a towel over JDub\u2019s leg and thought for a moment, \u2018that\u2019s odd,\u2019 before the realization kicked in. Also, it seemed like Brooke was shielding her teammates on the baseline from seeing the injury.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Ftr, feel and hawt how is this not going to be a superstar",
       "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "What\u2019s really messing us up are the turnovers. Can\u2019t have this many against good teams when you lose the lead.",
+      "gold": "analysis",
       "predicted": "analysis"
     },
     {
@@ -131,22 +116,42 @@
       "predicted": "analysis"
     },
     {
-      "text": "Yep. Never like to see shit like that. I didn't even notice it when it happened; it took until the replay to realize something went wrong.",
-      "gold": "reaction",
-      "predicted": "reaction"
-    },
-    {
       "text": "Needs to get more minutes and more shots",
       "gold": "hot_take",
       "predicted": "analysis"
     },
     {
-      "text": "With what assets are they going to use to acquire those picks? If that\u2019s the plan, it probably means taking on some terrible contracts.",
+      "text": "Our boi look so poised and relaxed out there",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Keep the winning season streak alive!",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Best-case scenario is our young players live up to the hype and we have Yanic, Wagler, and Baba on rookie-scale contracts almost all the way up until the picks get forfeited in 2030. If we use cap space on a star free agent in 2029, those first-round picks would be in the high 20s and not consequential at all. We still have a path to contention by then; it\u2019s just a little harder than before.",
       "gold": "analysis",
       "predicted": "analysis"
     },
     {
-      "text": "What\u2019s really messing us up are the turnovers. Can\u2019t have this many against good teams when you lose the lead.",
+      "text": "Clippers are literally the most disgraceful franchise in all of pro sports.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Funny thing is, now they will have to play him sometimes.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "That was a reckless close-out in a four-point game. Go rate bait somewhere else, idiot.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Clippers have picks in 2027, 2029, 2031, 2033, 2034, 2035, and so on. They\u2019ll probably eat 2028, and by then they\u2019ll have moved assets to acquire picks in 2030/32, meaning the only year the Clippers don\u2019t have a pick is 2028. I think having other teams\u2019 picks could be more valuable. Wagler has a very high ceiling. Very high. The kid is smooth. Just wait until Yanic comes back.",
       "gold": "analysis",
       "predicted": "analysis"
     },
@@ -156,19 +161,19 @@
       "predicted": "analysis"
     },
     {
-      "text": "I saw someone from the baseline run over and throw a towel over JDub\u2019s leg and thought for a moment, \u2018that\u2019s odd,\u2019 before the realization kicked in. Also, it seemed like Brooke was shielding her teammates on the baseline from seeing the injury.",
-      "gold": "analysis",
-      "predicted": "analysis"
+      "text": "How bro underlining his tweets",
+      "gold": "reaction",
+      "predicted": "reaction"
     },
     {
-      "text": "Wagler\u2019s TS% being that high and not even shooting the ball that well I\u2019m shaking we averaging 65%+ once we get comfortable",
+      "text": "I saw Williams\u2019 head hit the floor and figured they were checking for concussion signs.",
       "gold": "reaction",
       "predicted": "analysis"
     },
     {
-      "text": "That was a reckless close-out in a four-point game. Go rate bait somewhere else, idiot.",
+      "text": "They\u2019re the last team to talk about anything like this.",
       "gold": "hot_take",
-      "predicted": "reaction"
+      "predicted": "analysis"
     }
   ]
 }
