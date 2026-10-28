@@ -1,0 +1,174 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 28,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": true,
+  "scores": {
+    "n": 28,
+    "accuracy": 0.5,
+    "f1_macro": 0.39947089947089953,
+    "per_label": {
+      "analysis": {
+        "precision": 0.47368421052631576,
+        "recall": 1.0,
+        "f1": 0.6428571428571429,
+        "support": 9
+      },
+      "hot_take": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 10
+      },
+      "reaction": {
+        "precision": 0.5555555555555556,
+        "recall": 0.5555555555555556,
+        "f1": 0.5555555555555556,
+        "support": 9
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "Funny thing is, now they will have to play him sometimes.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Terrible man especially since he just got healthy",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "For real, though. The same guys calling for Dunn\u2019s head are the same guys who defended Dort and Wallace\u2019s repeated attempts to injure other players, whether intentionally or recklessly. Re-aggravating Fox\u2019s injury last playoffs, undercutting Ja Morant, and re-aggravating Doncic\u2019s injury in 2024. The same fans that defended these things are the ones calling for Dunn\u2019s head for a routine basketball play that just went awry.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Ftr, feel and hawt how is this not going to be a superstar",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "He\u2019s impressed me. But I\u2019d have him off the bench with Lopez. He could be killer in that role and start next year.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Be honest bro, did we get one?",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Clippers are literally the most disgraceful franchise in all of pro sports.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "He is very smooth and smart.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Clippers have picks in 2027, 2029, 2031, 2033, 2034, 2035, and so on. They\u2019ll probably eat 2028, and by then they\u2019ll have moved assets to acquire picks in 2030/32, meaning the only year the Clippers don\u2019t have a pick is 2028. I think having other teams\u2019 picks could be more valuable. Wagler has a very high ceiling. Very high. The kid is smooth. Just wait until Yanic comes back.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I saw Williams\u2019 head hit the floor and figured they were checking for concussion signs.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "He looks so confident and relaxed with the ball. Genuinely put him in the Shai mid-range camp and this kid is next up",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "How bro underlining his tweets",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "They\u2019re the last team to talk about anything like this.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "ROY.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Best-case scenario is our young players live up to the hype and we have Yanic, Wagler, and Baba on rookie-scale contracts almost all the way up until the picks get forfeited in 2030. If we use cap space on a star free agent in 2029, those first-round picks would be in the high 20s and not consequential at all. We still have a path to contention by then; it\u2019s just a little harder than before.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "This demon will be on OKC and Mara with us.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "DJJ for Clippers first-round pick \ud83d\udc40",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "About what? He\u2019s on the worst team in the league",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "He\u2019s closer to Garland\u2019s age than Waglers tho \ud83d\ude02",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "He\u2019s been so good; I just wish I could find the positivity to be happy about it",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Yep. Never like to see shit like that. I didn't even notice it when it happened; it took until the replay to realize something went wrong.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Needs to get more minutes and more shots",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "With what assets are they going to use to acquire those picks? If that\u2019s the plan, it probably means taking on some terrible contracts.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "What\u2019s really messing us up are the turnovers. Can\u2019t have this many against good teams when you lose the lead.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Keaton Wagler was known for his ability to shoot, draw fouls and playmake at Illinois. Here\u2019s how those skills are translating to the NBA and where he ranks among all rookies: FT rate: 1st \u2014 .813; FTA: 3rd \u2014 13; FTM: 3rd \u2014 11; 3PM: 1st; 3P%: 1st (minimum 4.0 3PA/G) \u2014 45.5%; APG: 3rd \u2014 4.0; plus-minus: 3rd \u2014 +10; PRA: 5th \u2014 44; SPG: 3rd \u2014 1.5.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I saw someone from the baseline run over and throw a towel over JDub\u2019s leg and thought for a moment, \u2018that\u2019s odd,\u2019 before the realization kicked in. Also, it seemed like Brooke was shielding her teammates on the baseline from seeing the injury.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Definitely going to be a fun, surprisingly good-vibes team with no expectations, but it hurts because it\u2019s not even like we\u2019re a cursed team when it comes to drafting and development. We get every pick taken right when the lottery odds change, and play-in-tier teams can be rewarded at much higher rates. I will always be a fan, but this is pretty much as close to a franchise killer as it gets. It felt like it was all lining up for a truly refreshing era too.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "That was a reckless close-out in a four-point game. Go rate bait somewhere else, idiot.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    }
+  ]
+}

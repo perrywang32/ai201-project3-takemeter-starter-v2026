@@ -39,7 +39,7 @@
 
 ## What This Does
 
-This is a **practice run** using the course-provided posts from a fictional running forum. The classifier is set up to sort posts into `analysis`, `hot_take`, and `reaction`. This 60-post practice set is useful for checking the notebook, but it is not my own 200-post community dataset.
+This project classifies Clippers basketball discussion posts from Reddit and X into `analysis`, `hot_take`, and `reaction`. The current dataset contains 183 labeled posts, below the 200-post target in the brief. The notebook trained and evaluated a DistilBERT classifier on a stratified split.
 
 ---
 
@@ -85,34 +85,36 @@ This is a **practice run** using the course-provided posts from a fictional runn
 
 ## The Dataset
 
-**Where the posts came from:** The course-provided `practice_labels.csv`, a fictional running-forum dataset.
+**Where the posts came from:** A mix of Reddit and X/Twitter comments about the Clippers, transcribed from screenshots.
 
-**How I labelled them:** I did not collect or label these posts myself; the course supplied them with labels already assigned. This was a practice run, not my project dataset.
+**How I labelled them:** AI suggestions were used while assembling labels; I need to verify the labels against the definitions and correct any mistakes. The CSV notes mark these rows for verification.
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---:|---:|
-| analysis | 20 | 33.3% |
-| hot_take | 20 | 33.3% |
-| reaction | 20 | 33.3% |
-| **Total** | **60** | **100%** |
+| analysis | 61 | 33.3% |
+| hot_take | 67 | 36.6% |
+| reaction | 55 | 30.1% |
+| **Total** | **183** | **100%** |
 
-**Three hard cases**
-
-I did not independently label this practice set, so I have not identified three cases from my own labeling. I still need to do this for my project dataset.
+**Three hard cases:** I still need to choose and explain three borderline examples from the dataset.
 
 ---
 
 ## The Training Run
 
-**Base model:** `distilbert-base-uncased` (configured in the notebook; training did not complete in the uploaded run).
+**Base model:** `distilbert-base-uncased`.
 
-**Settings:** 3 epochs, learning rate `2e-5`, batch size 16, seed 42. The notebook detected CPU (`torch 2.14.1+cpu`).
+**Settings:** 3 epochs, learning rate `2e-5`, batch size 16, maximum length 128. The main run used seed 42; the stability check used seeds 42, 7, and 2024.
 
-**Anything I changed from the defaults, and why:** No training settings were changed.
+**Anything I changed from the defaults, and why:** I kept the notebook's training defaults.
 
-**Split sizes:** Not generated. The uploaded notebook stopped when it tried to read `labels.csv`, which was not present. No training metrics are available yet.
+**Hardware:** CPU; PyTorch `2.14.1+cpu`.
+
+**Split sizes:** 127 train / 28 validation / 28 test. The seed-42 test split had 9 `analysis`, 10 `hot_take`, and 9 `reaction` posts.
+
+The dataset check found 183 rows, 17 below the 200-post target in the brief. Results below are from this dataset and should be interpreted cautiously, especially given the seed-to-seed spread.
 
 ---
 
@@ -120,196 +122,117 @@ I did not independently label this practice set, so I have not identified three 
 
 **Moment 1**
 
-- *What I asked for:* Help identifying what to fill in the notebook.
-- *What came back:* A recommendation to use the course practice CSV path when my own `labels.csv` was not available.
-- *What I changed:* The uploaded notebook still points to `labels.csv`; I need to change it to `data/practice_labels.csv` to run the practice set.
+- *What I asked for:* Help transcribing and labeling a mix of Reddit and X/Twitter screenshot comments for the project.
+- *What came back:* Draft post text and suggested labels.
+- *What I changed:* I assembled the suggestions into `labels.csv`. The labels still need a careful human audit against the written definitions; the notes flag them for verification.
 
 **Moment 2**
 
-- *What I asked for:* Help filling in the README from my notebook.
-- *What came back:* The review found the saved notebook had not progressed past the missing-file error and identified the practice-set label counts.
-- *What I changed:* I recorded the practice data and setup facts, and left training results blank because the model did not train.
+- *What I asked for:* Help running the notebook and interpreting its evaluation output.
+- *What came back:* Guidance on loading `labels.csv`, running the notebook, and reading its metrics.
+- *What I changed:* I ran the notebook on the 183-post dataset and am using its saved results as the evidence reported below.
 
-**Pre-labelling disclosure:** The practice CSV was already labeled by the course. I did not use AI to pre-label it.
+**Pre-labelling disclosure:** AI suggestions were used to draft labels. I have not yet completed a full manual verification pass, so the current scores may reflect labeling errors as well as model limitations.
 
 ---
 
 ## Baseline vs. Trained
 
-<!-- Both models on the same posts. `python baseline.py --trained results.json`
-     prints this table for you. -->
+The zero-shot baseline has **not been run yet**. The trained results below use the seed-42 held-out test split.
 
-| Measure | Baseline | Trained | Difference |
-|---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `analysis` |  |  |  |
-| F1 — `hot_take` |  |  |  |
-| F1 — `reaction` |  |  |  |
+| Measure | Baseline | Trained |
+|---|---:|---:|
+| Overall accuracy | pending | 0.607 |
+| Macro F1 | pending | 0.535 |
+| F1 — `analysis` | pending | 0.737 |
+| F1 — `hot_take` | pending | 0.667 |
+| F1 — `reaction` | pending | 0.200 |
 
-**What I predicted before I looked:**
-<!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
-     prediction made afterwards isn't one. -->
+**Prediction before seeing the comparison:** I expect the trained model to outperform the zero-shot baseline overall, especially on the analysis and hot_take labels, because it was fine-tuned on these posts. I expect the baseline may do similarly or better on reaction, since that label is less clearly separated in my training data.
 
-**What the gap actually means:**
-<!-- If the baseline matched your trained model, your fine-tuning added
-     nothing — and that is a real finding, not a failure. Say it plainly. -->
-
-
+**What the gap actually means:** Pending the baseline run.
 
 ---
 
 ## Run Log — Before
 
-<!-- Five criteria across three seeds. The notebook's section 6 prints the
-     spread table; the Target and Verdict columns are yours. -->
+The criteria in `criteria.md` were written after the initial run, so these targets are retrospective rather than pre-run acceptance criteria.
 
-| Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-|---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---:|---:|---:|---:|
+| Overall accuracy | 0.607 | 0.500 | 0.607 | 0.107 |
+| Macro F1 | 0.535 | 0.402 | 0.586 | 0.184 |
+| F1 — `analysis` | 0.737 | 0.727 | 0.889 | 0.162 |
+| F1 — `hot_take` | 0.667 | 0.480 | 0.583 | 0.187 |
+| F1 — `reaction` | 0.200 | 0.000 | 0.286 | 0.286 |
 
-### Confusion matrix
-
-<!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
-     An image of a matrix earns nothing. -->
+### Confusion matrix — seed 42
 
 | true \ predicted | analysis | hot_take | reaction |
 |---|---:|---:|---:|
-| **analysis** |  |  |  |
-| **hot_take** |  |  |  |
-| **reaction** |  |  |  |
+| **analysis** | 7 | 2 | 0 |
+| **hot_take** | 1 | 9 | 0 |
+| **reaction** | 2 | 6 | 1 |
 
-**My biggest off-diagonal number, and what it means:**
-<!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
-     direction. "7 real analysis posts were called hot_take and only 3 went the
-     other way" is a direction, not just an error rate. -->
-
-
+**Biggest off-diagonal number:** Six true `reaction` posts were predicted as `hot_take`, while no `hot_take` posts were predicted as `reaction`. The model is confusing immediate reactions with confident takes in this test split.
 
 ---
 
 ## Verdicts and Diagnoses
 
-<!-- MET or MISSED against LAST UNIT's target. The target has to hold across
-     all three seeds, not turn up sometimes. -->
+Using the targets in `criteria.md`:
 
-| # | Criterion | Target | Verdict | How I decided |
+| # | Criterion | Target | Results | Verdict |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Overall accuracy | ≥ 0.60 each seed | 0.607, 0.500, 0.607 | MISSED |
+| 2 | Macro F1 | ≥ 0.60 each seed | 0.535, 0.402, 0.586 | MISSED |
+| 3 | Every label F1 | ≥ 0.50 each seed | `reaction` F1 was 0.200, 0.000, 0.286 | MISSED |
+| 4 | Accuracy stability | spread ≤ 0.10 | spread 0.107 | MISSED |
+| 5 | Confidence usefulness | most-sure third ≥ least-sure third + 0.10 | See notebook output; inspect each seed before finalizing verdict | PENDING |
 
-**Diagnoses**
-
-<!-- For each miss: the cause, and how you know. The four common causes are:
-     too few examples for a label, a boundary you applied inconsistently, a
-     genuinely hard label pair, and a task the model can't reach from this
-     much data.
-
-     ⚠️ Use your agreement report as evidence. It is the only instrument you
-     have that can tell a LABELLING problem from a MODEL problem, and this
-     section is graded on whether you used it that way. -->
-
-
+**Diagnosis:** The seed-42 matrix shows a strong directional confusion: 6 of 9 actual `reaction` posts were called `hot_take`. Also, accuracy varies by 0.107 across seeds, exceeding the stability target. Because the labels have not yet had a full manual audit and the dataset is below the brief's 200-post target, I cannot yet separate model limitations from label ambiguity or data volume.
 
 ---
 
 ## Agreement Report
 
-<!-- Your rate against the staff set, and every disagreement adjudicated.
-
-     Remember you labelled these 30 under the STAFF taxonomy in
-     data/staff_taxonomy.md, not your own — so every argument below is made
-     from those definitions and those decision rules. -->
-
-**Agreement rate:** ___ / 30 = ___%
-
-<!-- Nobody grades this number. A 60% who argues every disagreement from the
-     stated rules beats a 95% who wrote "staff was right" nine times. Several
-     of the 30 were chosen because they're genuinely ambiguous — you should be
-     winning some of these. -->
-
-**Disagreements**
-
-<!-- Three lines each: the post, both labels, and who you think is right and
-     why — grounded in the staff definitions you were both applying.
-
-     Then sort each into one of three piles:
-       (a) the rule covered it and I applied it loosely → a consistency problem
-       (b) the rule genuinely doesn't say               → a gap in the definitions
-       (c) the rule is ambiguous here and my reading is defensible → argue it.
-           This is a legitimate win.
-
-     Pile (a) is the one that matters most for your diagnosis: if you applied a
-     written rule two different ways on 30 posts, that is direct evidence about
-     what you did across your own 200. -->
-
-**1.**
-> *The post:*
->
-> *Staff said / I said:*
->
-> *My call, and why:*
->
-> *Which pile:*
-
-**2.**
-> *The post:*
->
-> *Staff said / I said:*
->
-> *My call, and why:*
->
-> *Which pile:*
-
-**What the pattern in my disagreements tells me:**
-
-
+**Status:** Pending. I need to label the 30 staff posts myself under `data/staff_taxonomy.md` and obtain the matching staff labels file before calculating agreement. `my_staff_labels_template.csv` contains the exact post text and a blank label column.
 
 ---
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** Pending the baseline and staff agreement diagnosis.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** Pending.
 
 ### Run Log — After
 
+Not run yet. After choosing one evidence-based improvement, set `RUN_LABEL = "after"` in notebook Section 6 and rerun the three seeds.
+
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
-|---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+|---|---|---:|---:|---:|---|
+| 1. Overall accuracy | ≥ 0.60 each seed | pending | pending | pending | pending |
+| 2. Macro F1 | ≥ 0.60 each seed | pending | pending | pending | pending |
+| 3. Every label F1 | ≥ 0.50 each seed | pending | pending | pending | pending |
+| 4. Accuracy stability | spread ≤ 0.10 | pending | pending | pending | pending |
+| 5. Confidence usefulness | most-sure third ≥ least-sure third + 0.10 | pending | pending | pending | pending |
 
-**Did it help, and how do I know:**
-
-<!-- If it didn't, say so. Relabelling that didn't help is a genuinely
-     interesting result and earns full credit. -->
-
-
+**Did it help, and how do I know:** Pending the after run.
 
 ---
 
 ## What's Still Broken
 
-<!-- For each criterion still missed: what you'd do, and why you stopped. -->
+- The dataset has 183 posts, 17 below the 200-post target; labels are a mix of Reddit and X/Twitter comments.
+- AI-assisted draft labels still need a full manual audit against the label definitions.
+- The baseline comparison and staff agreement check are still pending.
+- Accuracy spread across the three seeds is 0.107, above the 0.10 stability target.
+- The confidence usefulness verdict still needs to be checked against each seed's detailed output.
 
+**The gap between the label definitions and what the model learned:** On seed 42, 6 actual `reaction` posts were classified as `hot_take`, while only 1 of 10 actual `hot_take` posts was classified as `reaction`. The model appears to rely on language shared by emphatic reactions and opinionated takes; a manual label audit and staff agreement results are needed before deciding whether this is mostly a model or labeling issue.
 
-
-**The gap between what I meant my labels to capture and what the model
-learned:**
-<!-- Two sentences. Your confusion matrix is the evidence. -->
-
-
+---
 
 <!-- ═════════════════════════════════════════════════════════════════════
 
